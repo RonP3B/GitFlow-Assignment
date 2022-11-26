@@ -232,6 +232,13 @@ body {
   }
 }
 
+.not-found {
+  text-align: center;
+}
+.not-found a {
+  width: 30%;
+}
+
 .footer {
   text-align: center;
   box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.75);
