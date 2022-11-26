@@ -1,3 +1,46 @@
 <section class="home container">
-  <h1>HOME</h1>
+  <div class="form-group mb-5 mt-5 home__filter-container">
+    <iconify-icon icon="mdi:movie-search" class="icon"></iconify-icon>
+    <label for="genre">Filter by your favorite genre</label>
+    <select class="form-select form-select-sm" id="filter" name="filter">
+      <option value="">All Genres</option>
+      <option value="Action">Action</option>
+      <option value="Horror">Horror</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Documentary">Documentary </option>
+    </select>
+  </div>
+
+  {{!#if }}
+  <iconify-icon icon="tabler:movie-off" class="main__logo"></iconify-icon>
+  <h2 class="main__title">There are no movies to display</h2>
+  <a href="/add-movie" class="btn btn-danger">Add movies</a>
+  {{!else}}
+
+  <div class="home__movies-container">
+    {{!#each}}
+    <div class="main__card card">
+      <div class="main__card__header card-header">
+        <iconify-icon
+          class="icon"
+          icon="fluent:movies-and-tv-16-filled"
+          {{!by status}}
+        ></iconify-icon>
+        <h5>Info aquí</h5>
+      </div>
+      <div class="main__card__body card-body home__movie-container">
+        <p class="card-text"><span>Description:</span> Info aquí</p>
+        <p class="card-text"><span>Status:</span> Info aquí</p>
+        <p class="card-text"><span>Genre:</span> Info aquí</p>
+        <a href="/edit-movie/Infoaquí" class="btn btn-warning">Edit</a>
+        <form action="/delete-movie/Infoaquí" method="POST" class="delete-form">
+          <input type="hidden" name="ID" value="Infoaquí" />
+          <button class="btn btn-danger btn-delete">Delete</button>
+        </form>
+      </div>
+    </div>
+    {{!/each}}
+  </div>
+  {{!/if}}
 </section>
