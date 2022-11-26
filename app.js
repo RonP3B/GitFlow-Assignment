@@ -5,6 +5,7 @@ const moviesRouter = require("./routes/movies");
 const path = require("path");
 const { engine } = require("express-handlebars");
 const filterMoviesByGenre = require("./helpers/hbs/filterMoviesByGenre");
+const moviesController = require("./controllers/movies");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -28,5 +29,6 @@ app.set("views", "views");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", moviesRouter);
+app.use(moviesController.getNotFound);
 
 app.listen(port, () => console.log(`Server running on port ${port}...`));
