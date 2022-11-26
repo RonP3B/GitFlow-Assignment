@@ -1,6 +1,7 @@
 "use strict";
 
 import { addFilterQuery } from "./helpers/filterHelpers.js";
+import { validateMoviesForm, clearFields } from "./helpers/formHelpers.js";
 
 $(() => {
   String.prototype.isEmpty = function () {
@@ -8,4 +9,6 @@ $(() => {
   };
 
   $(".main").on("change", "#filter", () => addFilterQuery());
+  $("#btn-save").click(() => validateMoviesForm());
+  $("#btn-clear").click(() => clearFields());
 });
