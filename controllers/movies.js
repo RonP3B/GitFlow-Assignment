@@ -56,3 +56,16 @@ exports.postAddMovie = (req, res, next) => {
     edited: false,
   });
 };
+
+exports.postEditMovie = (req, res, next) => {
+  const { name, description, genre, status, ID } = req.body;
+
+  const editedMovie = new Movie(name, description, genre, status, ID);
+  editedMovie.editMovie();
+
+  res.render("form-success", {
+    title: "Movies Manager",
+    edited: true,
+    ID,
+  });
+};

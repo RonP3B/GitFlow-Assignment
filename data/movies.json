@@ -1,1 +1,30 @@
-[{"id":"9863e972-47bd-4592-89cb-8cd14c2e157c","name":"Titanic","description":"Dimelo","genre":"Action","status":"Active"},{"id":"a18a0752-fd03-455e-9c5b-90dad4c42229","name":"Papa","description":"dsffsdf","genre":"Horror","status":"Active"}]
+[
+  {
+    "id": "9863e972-47bd-4592-89cb-8cd14c2e157c",
+    "name": "Titanic",
+    "description": "Dimelo",
+    "genre": "Action",
+    "status": "Active"
+  },
+  {
+    "id": "a18a0752-fd03-455e-9c5b-90dad4c42229",
+    "name": "Papa",
+    "description": "dsffsdf",
+    "genre": "Horror",
+    "status": "Active"
+  },
+  {
+    "id": "c52dcf69-c3ce-4518-8fde-8b9d10c53c36",
+    "name": "Papa",
+    "description": "dsffsdf",
+    "genre": "Horror",
+    "status": "Active"
+  },
+  {
+    "id": "f9f8ebad-b34e-458f-9efe-40f74b32c041",
+    "name": "Titanic",
+    "description": "fghgf",
+    "genre": "Horror",
+    "status": "Active"
+  }
+]
