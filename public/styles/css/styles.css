@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Knewave&display=swap");
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+body {
+  font-family: "Baloo 2", cursive;
+  background: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+  min-width: 320px;
+}
+
+.header__nav {
+  display: flex;
+  padding: 0.5rem 0.65rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eec48a;
+  box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.61);
+}
+.header__nav__menu-icon, .header__nav__check {
+  display: none;
+}
+.header__nav__logo {
+  display: flex;
+  align-items: center;
+}
+.header__nav__logo img {
+  width: 2.7rem;
+  height: 2.7rem;
+}
+.header__nav__logo p {
+  margin: 0;
+  font-family: "Knewave", cursive;
+  font-size: 1.35rem;
+  color: #9b2226;
+  cursor: pointer;
+}
+.header__nav__list {
+  display: flex;
+  justify-content: space-around;
+}
+.header__nav__list a {
+  color: #9b2226;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: color 0.2s linear;
+}
+.header__nav__list a:hover {
+  color: #8c1f22;
+}
+@media screen and (min-width: 1200px) {
+  .header__nav {
+    padding: 0.5rem 2.5rem;
+  }
+  .header__nav__logo img {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+  .header__nav__logo p {
+    font-size: 1.3rem;
+  }
+  .header__nav__list a {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .header__nav {
+    position: relative;
+  }
+  .header__nav__menu-icon {
+    display: block;
+    color: #9b2226;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s linear;
+  }
+  .header__nav__menu-icon:hover {
+    color: #8c1f22;
+  }
+  .header__nav__check:checked ~ .header__nav__list {
+    display: block;
+  }
+  .header__nav__check:checked ~ .header__nav__menu-icon {
+    color: #8c1f22;
+  }
+  .header__nav__list {
+    display: none;
+    position: absolute;
+    background-color: #eec48a;
+    top: 100%;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-bottom: 2px solid #9b2226;
+    border-left: 2px solid #9b2226;
+    width: 50%;
+    min-width: 13rem;
+    z-index: 2;
+  }
+  .header__nav__list a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    border-top: 1px solid #9b2226;
+    padding: 0.3rem;
+    background-color: #eec48a;
+    height: 2.2rem;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+  }
+  .header__nav__list a:hover {
+    background-color: #c7a16c;
+  }
+  .header__nav__check {
+    display: block;
+    position: absolute;
+    right: 0.95rem;
+    transform: scale(1.5);
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  text-align: center;
+  box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.75);
+  background-color: #eec48a;
+  color: #9b2226;
+  padding: 0.2rem 0.3rem;
+  font-size: 1.2rem;
+}
+.footer a {
+  color: #9b2226;
+  transition: color 0.2s linear;
+}
+.footer a:hover {
+  color: #8c1f22;
+}
+.footer__social {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.35rem;
+}
+.footer__social__icon {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  transition: color 0.25s linear;
+  color: #9b2226;
+  cursor: pointer;
+}
+.footer__social__icon:hover {
+  color: #8c1f22;
+}
+@media screen and (min-width: 1200px) {
+  .footer {
+    font-size: 1.3rem;
+  }
+  .footer__social__icon {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .footer {
+    font-size: 1.1rem;
+  }
+  .footer__social__icon {
+    font-size: 1.3rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

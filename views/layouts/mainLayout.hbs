@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/mainIcon.png" />
+    <link
+      rel="stylesheet"
+      href="/styles/css/libs/bootstrap/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/styles/css/styles.css" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <a href="/" class="header__nav__logo">
+          <img src="/assets/images/mainIcon.png" alt="logo" />
+          <p>{{title}}</p>
+        </a>
+        <!-- Mobile dropmenu icon -->
+        <input type="checkbox" class="header__nav__check" />
+        <iconify-icon
+          class="header__nav__menu-icon"
+          icon="ant-design:menu-outlined"
+        ></iconify-icon>
+        <!-- Desktop Menu -->
+        <ul class="header__nav__list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/add-movie">Add</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      {{{body}}}
+    </main>
+    <footer class="footer">
+      <h4>
+        Created by
+        <strong>Roniell Pérez</strong>
+        ©
+      </h4>
+      <ul class="footer__social">
+        <li>
+          <a href="https://github.com/RonP3B" target="_blank">
+            <iconify-icon
+              class="footer__social__icon"
+              icon="akar-icons:github-fill"
+            ></iconify-icon>
+          </a>
+        </li>
+        <li>
+          <a href="https://t.me/RoniellPB" target="_blank">
+            <iconify-icon
+              class="footer__social__icon"
+              icon="akar-icons:telegram-fill"
+            ></iconify-icon>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/roniell-p%C3%A9rez-967882229/"
+            target="_blank"
+          >
+            <iconify-icon
+              class="footer__social__icon"
+              icon="akar-icons:linkedin-box-fill"
+            ></iconify-icon>
+          </a>
+        </li>
+      </ul>
+    </footer>
+    <div class="alert alert-danger" role="alert" style="display: none">
+      <iconify-icon icon="carbon:warning-filled"></iconify-icon>
+      <span></span>
+    </div>
+  </body>
+  <script src="/js/libs/bootstrap/bootstrap.min.js"></script>
+  <script
+    src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"
+  ></script>
+  <script src="/js/libs/jquery/jquery-3.6.0.min.js"></script>
+  <script src="/js/index.js" type="module"></script>
+</html>
