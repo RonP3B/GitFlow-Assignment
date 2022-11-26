@@ -232,6 +232,19 @@ body {
   }
 }
 
+.about {
+  text-align: center;
+}
+.about__info {
+  color: #9b2226;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.about img {
+  height: 10rem;
+  margin-bottom: 0.2rem;
+}
+
 .not-found {
   text-align: center;
 }

@@ -1,0 +1,14 @@
+.about {
+  text-align: center;
+
+  &__info {
+    color: $red;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  img {
+    height: 10rem;
+    margin-bottom: 0.2rem;
+  }
+}
