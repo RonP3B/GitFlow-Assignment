@@ -69,3 +69,8 @@ exports.postEditMovie = (req, res, next) => {
     ID,
   });
 };
+
+exports.postDeleteMovie = (req, res, next) => {
+  Movie.deleteMovie(req.body.ID);
+  res.redirect("/");
+};
