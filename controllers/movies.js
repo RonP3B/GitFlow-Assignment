@@ -12,6 +12,18 @@ exports.getMoviesHome = (req, res, next) => {
   });
 };
 
+exports.getAddMovie = (req, res, next) => {
+  res.render("save-movie", {
+    title: "Movies Manager",
+  });
+};
+
+exports.getEditMovie = (req, res, next) => {
+  res.render("save-movie", {
+    title: "Movies Manager",
+  });
+};
+
 exports.getAbout = (req, res, next) => {
   res.render("about", {
     title: "Movies Manager",
