@@ -44,3 +44,12 @@ exports.getAbout = (req, res, next) => {
 exports.getNotFound = (req, res, next) => {
   res.status(404).render("notFound", { title: "Movies Manager" });
 };
+
+exports.postAddMovie = (req, res, next) => {
+  const { name, description, genre, status } = req.body;
+
+  const newMovie = new Movie(name, description, genre, status);
+  newMovie.saveMovie();
+
+  res.redirect("/");
+};
