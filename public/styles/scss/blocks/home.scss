@@ -1,0 +1,63 @@
+.home {
+  color: $red;
+  text-align: center;
+
+  a {
+    width: 30%;
+  }
+
+  &__filter-container {
+    background-color: $yellow;
+    color: $red;
+    border: 2px solid $red;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    max-width: 35rem;
+    margin: 0 auto;
+    box-shadow: $realisticShadow;
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    select,
+    option {
+      color: $red;
+      font-weight: 600;
+    }
+
+    .icon {
+      font-size: 5rem;
+      display: block;
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__movies-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+
+  &__movie-container {
+    text-align: initial;
+
+    span {
+      background-color: $yellow;
+      color: $red;
+      border-radius: 6px;
+      padding: 0 0.2rem;
+    }
+
+    form {
+      display: inline-block;
+    }
+  }
+
+  @include size {
+    &__movies-container {
+      grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+    }
+  }
+}

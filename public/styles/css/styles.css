@@ -177,6 +177,61 @@ body {
   margin-left: 0.5rem;
 }
 
+.home {
+  color: #9b2226;
+  text-align: center;
+}
+.home a {
+  width: 30%;
+}
+.home__filter-container {
+  background-color: #eec48a;
+  color: #9b2226;
+  border: 2px solid #9b2226;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  max-width: 35rem;
+  margin: 0 auto;
+  box-shadow: 2px 5px 3px 0 rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.home__filter-container select,
+.home__filter-container option {
+  color: #9b2226;
+  font-weight: 600;
+}
+.home__filter-container .icon {
+  font-size: 5rem;
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+}
+.home__movies-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+.home__movie-container {
+  text-align: initial;
+}
+.home__movie-container span {
+  background-color: #eec48a;
+  color: #9b2226;
+  border-radius: 6px;
+  padding: 0 0.2rem;
+}
+.home__movie-container form {
+  display: inline-block;
+}
+@media screen and (min-width: 700px) {
+  .home__movies-container {
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  }
+}
+
 .footer {
   text-align: center;
   box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.75);
