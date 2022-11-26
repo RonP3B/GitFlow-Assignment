@@ -51,5 +51,8 @@ exports.postAddMovie = (req, res, next) => {
   const newMovie = new Movie(name, description, genre, status);
   newMovie.saveMovie();
 
-  res.redirect("/");
+  res.render("form-success", {
+    title: "Movies Manager",
+    edited: false,
+  });
 };
