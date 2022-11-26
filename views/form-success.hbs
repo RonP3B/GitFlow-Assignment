@@ -1,0 +1,12 @@
+<section class="form-success container">
+  <iconify-icon icon="mdi:movie-open-check" class="main__logo"></iconify-icon>
+  <h2 class="main__title">Movie
+    {{#if edited}}edited{{else}}added{{/if}}
+    successfully</h2>
+  <a
+    href="/{{#if edited}}edit-movie/{{ID}}{{else}}add-movie{{/if}}"
+    class="btn btn-danger"
+  >
+    {{#if edited}}Re-edit{{else}}Add another{{/if}} movie</a>
+  <a href="/" class="btn btn-danger">Back Home</a>
+</section>
