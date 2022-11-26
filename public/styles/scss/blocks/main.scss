@@ -1,0 +1,57 @@
+.main {
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - 129px);
+  padding: 0.5rem 0.75rem;
+
+  &__logo,
+  &__title {
+    color: $red;
+  }
+
+  &__logo {
+    font-size: 12rem;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__card {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      background-color: $yellow;
+      color: $red;
+
+      h5 {
+        margin: 0;
+        font-weight: 700;
+      }
+
+      .icon {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__body {
+      color: $red;
+      font-weight: 600;
+
+      &__form {
+        &__buttons {
+          display: flex;
+          justify-content: end;
+
+          button {
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -132,6 +132,51 @@ body {
   }
 }
 
+.main {
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - 129px);
+  padding: 0.5rem 0.75rem;
+}
+.main__logo, .main__title {
+  color: #9b2226;
+}
+.main__logo {
+  font-size: 12rem;
+}
+.main__title {
+  font-weight: 700;
+}
+.main__card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
+}
+.main__card__header {
+  display: flex;
+  align-items: center;
+  background-color: #eec48a;
+  color: #9b2226;
+}
+.main__card__header h5 {
+  margin: 0;
+  font-weight: 700;
+}
+.main__card__header .icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+.main__card__body {
+  color: #9b2226;
+  font-weight: 600;
+}
+.main__card__body__form__buttons {
+  display: flex;
+  justify-content: end;
+}
+.main__card__body__form__buttons button {
+  margin-left: 0.5rem;
+}
+
 .footer {
   text-align: center;
   box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.75);
