@@ -15,12 +15,23 @@ exports.getMoviesHome = (req, res, next) => {
 exports.getAddMovie = (req, res, next) => {
   res.render("save-movie", {
     title: "Movies Manager",
+    edit: false,
+    cardTitle: "Add new movie",
+    icon: "mdi:movie-open-plus",
   });
 };
 
 exports.getEditMovie = (req, res, next) => {
-  res.render("save-movie", {
-    title: "Movies Manager",
+  const { ID } = req.params;
+
+  Movie.getMovie(ID, (movie) => {
+    res.render("save-movie", {
+      title: "Movies Manager",
+      edit: true,
+      cardTitle: "Edit movie",
+      icon: "mdi:movie-open-edit",
+      movie,
+    });
   });
 };
 
