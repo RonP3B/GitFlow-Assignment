@@ -12,6 +12,12 @@ exports.getMoviesHome = (req, res, next) => {
   });
 };
 
+exports.getAbout = (req, res, next) => {
+  res.render("about", {
+    title: "Movies Manager",
+  });
+};
+
 exports.getNotFound = (req, res, next) => {
   res.status(404).render("notFound", { title: "Movies Manager" });
 };
