@@ -4,6 +4,7 @@ const express = require("express");
 const moviesRouter = require("./routes/movies");
 const path = require("path");
 const { engine } = require("express-handlebars");
+const filterMoviesByGenre = require("./helpers/hbs/filterMoviesByGenre");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,6 +15,11 @@ app.engine(
     layoutsDir: "views/layouts",
     defaultLayout: "mainLayout",
     extname: "hbs",
+    helpers: {
+      equal: (a, b) => a === b,
+      filterMoviesByGenre,
+      isAnEmptyArray: (arr) => arr.length === 0,
+    },
   })
 );
 app.set("view engine", "hbs");
