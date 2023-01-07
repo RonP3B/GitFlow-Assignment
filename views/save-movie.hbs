@@ -1,4 +1,4 @@
-<section class="save-movie">
+<section>
     <div class="main__card card">
     <div class="main__card__header card-header">
       <iconify-icon class="icon" icon={{icon}}></iconify-icon>
@@ -7,13 +7,14 @@
     <div class="main__card__body card-body">
       <form
         method="POST"
-        action="/{{#if edit}}edit-movie{{else}}add-movie{{/if}}"
-        class="main__card__body__form form-movies"
+        action="/movies/{{#if edit}}edit-movie{{else}}add-movie{{/if}}"
+        class="main__card__body__form default-form"
       >
+        <input name="_csrf" value="{{csrfToken}}" type="hidden" />
         <div class="form-group mb-2">
           <label for="name">Movie Name:</label>
           <input
-            class="form-control form-control-sm"
+            class="form-control form-control-sm required-field"
             type="text"
             id="name"
             name="name"
@@ -24,7 +25,7 @@
         <div class="form-group mb-2">
           <label for="description">Movie Description:</label>
           <textarea
-            class="form-control form-control-sm"
+            class="form-control form-control-sm required-field"
             rows="3"
             id="description"
             name="description"
@@ -33,23 +34,23 @@
         <div class="form-group mb-2 {{#unless edit}}d-none{{/unless}}">
           <label for="status">Movie Status</label>
           <select
-            class="form-select form-select-sm"
+            class="form-select form-select-sm required-field"
             id="status"
             name="status"
           >
             <option 
-              value="Active" 
-              {{#if (equal movie.status "Active")}}selected{{/if}}
+              value="1" 
+              {{#if movie.status}}selected{{/if}}
             >Active</option>
             <option 
-              value="Inactive"
-              {{#if (equal movie.status "Inactive")}}selected{{/if}}
+              value="0"
+              {{#unless movie.status}}selected{{/unless}}
             >Inactive</option>
           </select>
         </div>
         <div class="form-group mb-2">
           <label for="genre">Movie Genre</label>
-          <select class="form-select form-select-sm" id="genre" name="genre">
+          <select class="form-select form-select-sm required-field" id="genre" name="genre">
             <option 
             value=""
             >Select Movie Genre</option>
@@ -84,7 +85,7 @@
           <button type="button" class="btn btn-warning btn-sm" id="btn-clear">
             Clear
           </button>
-          <button type="button" class="btn btn-danger btn-sm" id="btn-save">
+          <button type="button" class="btn btn-danger btn-sm" id="btn-submit">
             Save
           </button>
         </div>

@@ -9,14 +9,19 @@
       href="/styles/css/libs/bootstrap/bootstrap.min.css"
     />
     <link rel="stylesheet" href="/styles/css/styles.css" />
-    <title>{{title}}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>Movies Manager</title>
   </head>
   <body>
     <header class="header">
       <nav class="header__nav">
-        <a href="/" class="header__nav__logo">
+        <a href="/{{#if isAuthenticated}}movies{{/if}}" class="header__nav__logo">
           <img src="/assets/images/mainIcon.png" alt="logo" />
-          <p>{{title}}</p>
+          <p>Movies Manager</p>
         </a>
         <!-- Mobile dropmenu icon -->
         <input type="checkbox" class="header__nav__check" />
@@ -26,9 +31,14 @@
         ></iconify-icon>
         <!-- Desktop Menu -->
         <ul class="header__nav__list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/add-movie">Add</a></li>
-          <li><a href="/about">About</a></li>
+          {{#if isAuthenticated}}
+            <li><a href="/movies">Home</a></li>
+            <li><a href="/movies/add-movie">Add</a></li>
+            <li><a href="/movies/about">About</a></li>
+            <li><a href="/log-out">Log out</a></li>
+          {{else}}
+            <li><a href="/movies/about">About</a></li>
+          {{/if}}
         </ul>
       </nav>
     </header>
@@ -71,15 +81,31 @@
         </li>
       </ul>
     </footer>
-    <div class="alert alert-danger" role="alert" style="display: none">
-      <iconify-icon icon="carbon:warning-filled"></iconify-icon>
-      <span></span>
-    </div>
   </body>
+
   <script src="/js/libs/bootstrap/bootstrap.min.js"></script>
+
   <script
     src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"
   ></script>
+
   <script src="/js/libs/jquery/jquery-3.6.0.min.js"></script>
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
+
+  {{! Backend toasts }}
+  {{#if hasMessages}}
+    <script src="/js/backendToast.js"></script>
+    {{#each messages}}
+      <script type="text/javascript">
+        showBackendToast({{{json this}}})
+      </script>
+    {{/each}}
+  {{/if}}
+  {{! Backend toasts }}
+
   <script src="/js/index.js" type="module"></script>
 </html>

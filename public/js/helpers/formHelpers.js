@@ -1,25 +1,31 @@
-const fields = ["name", "description", "status", "genre"];
+import { showToast } from "./showToast.js";
 
-const showAlert = (msg) => {
-  $(".alert span").html(msg);
-  $(".alert").fadeIn(500).delay(2000).fadeOut(500);
+const checkRequiredFields = () => {
+  let res = true;
+
+  $(".required-field").each(function () {
+    if ($(this).val().isEmpty()) {
+      res = false;
+      return false;
+    }
+  });
+
+  return res;
 };
 
-const checkFields = () => {
-  for (const field of fields) if ($(`#${field}`).val().isEmpty()) return false;
-  return true;
+const highlightFields = () => {
+  $(".required-field").each(function () {
+    if ($(this).val().isEmpty()) $(this).addClass("is-invalid");
+    else $(this).removeClass("is-invalid");
+  });
 };
 
-const highlightEmptyFields = () => {
-  for (const field of fields)
-    if ($(`#${field}`).val().isEmpty()) $(`#${field}`).addClass("is-invalid");
-    else $(`#${field}`).removeClass("is-invalid");
-};
+export const clearMovieForm = () => {
+  const fields = ["name", "description", "status", "genre"];
 
-export const clearFields = (edit) => {
   for (const field of fields) {
     if (field === "status") {
-      $(`#${field}`).val("Active");
+      $(`#${field}`).val("0");
       continue;
     }
 
@@ -29,11 +35,11 @@ export const clearFields = (edit) => {
   $(`#${fields[0]}`).focus();
 };
 
-export const validateMoviesForm = () => {
-  if (checkFields()) {
-    $(".main .form-movies").submit();
+export const validateForm = () => {
+  if (checkRequiredFields()) {
+    $(".default-form").submit();
   } else {
-    highlightEmptyFields();
-    showAlert("You must complete all the fields");
+    highlightFields();
+    showToast("You must complete all the fields");
   }
 };

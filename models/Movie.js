@@ -1,53 +1,38 @@
-const crypto = require("crypto");
+const Sequelize = require("sequelize");
 
-const {
-  getAllMovies,
-  writeFileAsJSON,
-} = require("../helpers/general/fileManagement");
+const sequelizeObj = require("../util/databaseObj");
 
-module.exports = class Movie {
-  constructor(name, description, genre, status, id = crypto.randomUUID()) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.genre = genre;
-    this.status = status;
-  }
+const Movie = sequelizeObj.define("movies", {
+  id: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    primaryKey: true,
+  },
 
-  saveMovie() {
-    getAllMovies((movies) => {
-      movies.push(this);
-      writeFileAsJSON(movies);
-    });
-  }
+  user_id: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  editMovie() {
-    getAllMovies((movies) => {
-      const movieIdx = movies.findIndex((movie) => movie.id === this.id);
-      movies[movieIdx] = this;
-      writeFileAsJSON(movies);
-    });
-  }
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  toString() {
-    return `{id:${this.id},name:${this.name},description:${this.description},genre:${this.status}}`;
-  }
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+  },
 
-  static getMovies(callBack) {
-    getAllMovies(callBack);
-  }
+  genre: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  static getMovie(id, callBack) {
-    getAllMovies((movies) => {
-      const movie = movies.find((movie) => movie.id === id);
-      callBack(movie);
-    });
-  }
+  status: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: "0",
+  },
+});
 
-  static deleteMovie(id) {
-    getAllMovies((movies) => {
-      const newMovieList = movies.filter((movie) => movie.id !== id);
-      writeFileAsJSON(newMovieList);
-    });
-  }
-};
+module.exports = Movie;

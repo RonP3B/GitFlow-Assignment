@@ -1,16 +1,11 @@
 {
   "name": "movie_manager",
   "version": "1.0.0",
-  "description": "Asignación GitFlow",
+  "description": "Movies CRUD",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "data/movies.json"
-    ]
   },
   "author": "Roniell Pérez | 2021-0032",
   "license": "ISC",
@@ -18,7 +13,15 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0"
   }
 }

@@ -11,36 +11,36 @@
       <option
         value="Documentary"
         {{#if (equal genre "Documentary")}}selected{{/if}}
-      >Documentary </option>
+      >Documentary</option>
     </select>
   </div>
-  {{#if (isAnEmptyArray (filterMoviesByGenre movies genre))}}
+  {{#unless movies}}
     <iconify-icon icon="tabler:movie-off" class="main__logo"></iconify-icon>
     <h2 class="main__title">There are no movies to display</h2>
-    <a href="/add-movie" class="btn btn-danger">Add movies</a>
-  {{else}}
+    <a href="/movies/add-movie" class="btn btn-danger">Add movies</a>
+  {{/unless}}
     <div class="home__movies-container">
-      {{#each (filterMoviesByGenre movies genre)}}
-          <div class="main__card card {{#if (equal this.status "Inactive")}}Inactive{{/if}}">
+      {{#each movies}}
+          <div class="main__card card {{#unless this.status}}Inactive{{/unless}}">
             <div class="main__card__header card-header">
               <iconify-icon
                 class="icon"
-                icon="{{#if (equal this.status "Inactive")}}mdi:movie-settings{{else}}fluent:movies-and-tv-16-filled{{/if}}"
+                icon="{{#unless this.status}}mdi:movie-settings{{else}}fluent:movies-and-tv-16-filled{{/unless}}"
               ></iconify-icon>
               <h5>{{this.name}}</h5>
             </div>
             <div class="main__card__body card-body home__movie-container">
               <p class="card-text"><span>Description:</span> {{this.description}}</p>
-              <p class="card-text"><span>Status:</span> {{this.status}}</p>
+              <p class="card-text"><span>Status:</span> {{#if this.status}}Active{{else}}Inactive{{/if}}</p>
               <p class="card-text"><span>Genre:</span> {{this.genre}}</p>
-              <a href="/edit-movie/{{this.id}}" class="btn btn-warning">Edit</a>
-              <form action="/delete-movie/{{this.id}}" method="POST" class="delete-form">
+              <a href="/movies/edit-movie/{{this.id}}" class="btn btn-warning">Edit</a>
+              <form action="/movies/delete-movie/{{this.id}}" method="POST" class="delete-form">
+                <input name="_csrf" value="{{../csrfToken}}" type="hidden" />
                 <input type="hidden" name="ID" value="{{this.id}}" />
                 <button class="btn btn-danger btn-delete">Delete</button>
               </form>
             </div>
-          </div>
+          </div>   
         {{/each}}
     </div>
-  {{/if}}
 </section>

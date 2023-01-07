@@ -4,9 +4,9 @@
     {{#if edited}}edited{{else}}added{{/if}}
     successfully</h2>
   <a
-    href="/{{#if edited}}edit-movie/{{ID}}{{else}}add-movie{{/if}}"
+    href="/movies/{{#if edited}}edit-movie/{{ID}}{{else}}add-movie{{/if}}"
     class="btn btn-danger"
   >
     {{#if edited}}Re-edit{{else}}Add another{{/if}} movie</a>
-  <a href="/" class="btn btn-danger">Back Home</a>
+  <a href="/movies" class="btn btn-danger">Back Home</a>
 </section>

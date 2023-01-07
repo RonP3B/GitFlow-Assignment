@@ -1,0 +1,57 @@
+<section>
+  <div class="main__card card">
+    <div class="main__card__header card-header">
+      <iconify-icon class="icon" icon={{icon}}></iconify-icon>
+      <h5>Sign up</h5>
+    </div>
+    <div class="main__card__body card-body">
+      <form
+        method="POST"
+        action="/sign-up"
+        class="main__card__body__form default-form"
+      >
+        <input name="_csrf" value="{{csrfToken}}" type="hidden" />
+        <div class="form-group mb-2">
+          <label for="username">Username:</label>
+          <input
+            class="form-control form-control-sm required-field"
+            type="text"
+            id="username"
+            name="username"
+            autofocus
+          />
+        </div>
+        <div class="form-group mb-2">
+          <label for="password">Password:</label>
+          <input
+            class="form-control form-control-sm required-field"
+            type="password"
+            id="password"
+            name="password"
+          />
+        </div>
+        <div class="form-group mb-2">
+          <label for="confirmPassword">Confirm password:</label>
+          <input
+            class="form-control form-control-sm required-field"
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+          />
+        </div>
+        <div class="main__card__body__form__buttons">
+          <a href="/" class="btn btn-warning management-button">
+            Go back
+          </a>
+          <button
+            type="button"
+            class="btn btn-danger management-button ms-1"
+            id="btn-submit"
+          >
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
