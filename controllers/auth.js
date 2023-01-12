@@ -69,7 +69,9 @@ exports.postSignup = async (req, res, next) => {
       return res.redirect("/sign-up");
     }
 
-    const objUser = await User.findOne({ where: { username } });
+    const objUser = await User.findOne({
+      where: { username: username.toLowerCase() }
+    });
 
     if (objUser) {
       req.flash("msg", "That username already exists, try another one.");
